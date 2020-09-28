@@ -24,7 +24,8 @@ class Application
       if @@items.include?(search_term)
         @@cart << search_term
       else 
-        resp.write
+        resp.write "We don't have that item"
+      end 
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
